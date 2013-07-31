@@ -1,6 +1,8 @@
+
+
 <?php
 // 1. 데이터베이스 서버에 접속
-$link=mysql_connect('localhost','root','ib1234.');
+$link=mysql_connect('localhost','root','111111');
 if(!$link) {
 die('Could not connect: '.mysql_error());
 }
@@ -80,20 +82,21 @@ $topic = mysql_fetch_assoc($result);
             }
             .description{
                 width:500px;
-            }
+            }                    
         </style>
     </head>
-  
+ 
     <body id="body">
         <div>
             <header>
                 <h1>JavaScript</h1>
             </header>
-            <div id="toolbar">
+            <div id="toolbar">                
                 <input type="button" value="black" onclick="document.getElementById('body').className='black'" />
                 <input type="button" value="white" onclick="document.getElementById('body').className='white'" />
             </div>
             <nav>
+                <a href="./add.php">토픽추가</a>
                 <ul>
                     <?php
                     $sql="select id,title from topic";
@@ -101,7 +104,7 @@ $topic = mysql_fetch_assoc($result);
                     while($row=mysql_fetch_assoc($result)) {
                     echo "
                     <li>
-                        <a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
+                        <a href=\"index.php?id={$row['id']}\">{$row['title']}</a></li>";
                         }
                         ?>
                 </ul>
@@ -115,9 +118,17 @@ $topic = mysql_fetch_assoc($result);
                     <?=$topic['description']?>
                 </div>
                 <?php
-                }
+                }  
                 ?>
             </article>
         </div>
     </body>
 </html>
+
+ 
+ 
+
+
+ 
+   
+
